@@ -18,11 +18,6 @@ var QRCode = require('qrcode')
 
 const client = require('twilio')('ACe10cf27119f112c5d31886f4d6e2c896', '057d90d8a7c019b3207471a621a317be');
 const constants = require('./config/constants.json')
-const patient = require('./routes/patient/patient')
-const doctor = require('./routes/doctor/doctor')
-const querydata = require('./routes/query/query');
-const appointment = require('./routes/appointment/appointment');
-const mahadmin = require('./routes/mahadmin/mahadmin');
 
 const host = process.env.HOST || constants.host;
 const port = process.env.PORT || constants.port;
