@@ -120,8 +120,6 @@ queryInstalled() {
     echo " "
 
     export PACKAGE_ID1
-    export PACKAGE_ID2
-    export PACKAGE_ID3
 }
 
 approveForMyOrg() {
@@ -136,9 +134,8 @@ approveForMyOrg() {
     # set -x
     peer lifecycle chaincode approveformyorg -o localhost:7050 \
         --ordererTLSHostnameOverride orderer.example.com --tls \
-        --collections-config $PRIVATE_DATA_CONFIG \
         --cafile $ORDERER_CA --channelID $Channel --name ${CC1_NAME} --version ${VERSION} \
-        --init-required --package-id ${PACKAGE_ID1} --sequence ${SEQUENCE} --signature-policy "OR ('Org1MSP.peer', 'Org2MSP.peer', 'Org3MSP.peer', 'Org4MSP.peer')"
+        --init-required --package-id ${PACKAGE_ID1} --sequence ${SEQUENCE} --signature-policy "OR ('Org1MSP.peer')"
     # set +x
 
     echo "===================== Patient chaincode approved from org 1 ===================== "
@@ -163,9 +160,8 @@ checkCommitReadyness() {
     setGlobalsForPeer0Org1
     peer lifecycle chaincode checkcommitreadiness \
         -o localhost:7050 --channelID $Channel --tls \
-        --collections-config $PRIVATE_DATA_CONFIG \
         --cafile $ORDERER_CA --name ${CC1_NAME} --version ${VERSION} \
-        --init-required --sequence ${VERSION} --output json --signature-policy "OR ('Org1MSP.peer', 'Org2MSP.peer', 'Org3MSP.peer', 'Org4MSP.peer')"
+        --init-required --sequence ${VERSION} --output json --signature-policy "OR ('Org1MSP.peer')"
     echo "===================== checking commit readyness from org 1 ===================== "
 
     echo "===================== checking commit readyness from org 2 ===================== "
@@ -184,10 +180,9 @@ commitChaincodeDefination() {
     peer lifecycle chaincode commit -o localhost:7050 --ordererTLSHostnameOverride orderer.example.com \
         --tls $CORE_PEER_TLS_ENABLED --cafile $ORDERER_CA \
         --channelID $Channel --name ${CC1_NAME} \
-        --collections-config $PRIVATE_DATA_CONFIG \
         --peerAddresses localhost:7051 --tlsRootCertFiles $PEER0_ORG1_CA \
         --peerAddresses localhost:8051 --tlsRootCertFiles $PEER1_ORG1_CA \
-        --version ${VERSION} --sequence ${SEQUENCE} --init-required --signature-policy "OR ('Org1MSP.peer', 'Org2MSP.peer', 'Org3MSP.peer', 'Org4MSP.peer')"
+        --version ${VERSION} --sequence ${SEQUENCE} --init-required --signature-policy "OR ('Org1MSP.peer')"
 
     echo "===================== chaincode committed from org 1 ===================== "
 
