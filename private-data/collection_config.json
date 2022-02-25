@@ -1,0 +1,47 @@
+[
+    {
+         "name": "patient_priv",
+         "policy": "OR('Org1MSP.member')",
+         "requiredPeerCount": 0,
+         "maxPeerCount": 7,
+         "blockToLive": 1000000,
+         "memberOnlyRead": true,
+         "memberOnlyWrite": true
+    },
+    {
+        "name": "doctor_priv",
+        "policy": "OR('Org2MSP.member')",
+        "requiredPeerCount": 0,
+        "maxPeerCount": 7,
+        "blockToLive": 1000000,
+        "memberOnlyRead": true,
+        "memberOnlyWrite": true
+   },
+   {
+        "name": "mah_priv",
+        "policy": "OR('Org3MSP.member')",
+        "requiredPeerCount": 0,
+        "maxPeerCount": 7,
+        "blockToLive": 1000000,
+        "memberOnlyRead": true,
+        "memberOnlyWrite": true
+    },
+    {
+        "name": "insurance_priv",
+        "policy": "OR('Org4MSP.member')",
+        "requiredPeerCount": 0,
+        "maxPeerCount": 7,
+        "blockToLive": 1000000,
+        "memberOnlyRead": true,
+        "memberOnlyWrite": true
+    },
+    {
+        "name": "doc_pat_priv",
+        "policy": "OR('Org1MSP.member','Org2MSP.member')",
+        "requiredPeerCount": 0,
+        "maxPeerCount": 7,
+        "blockToLive": 1000000,
+        "memberOnlyRead": true,
+        "memberOnlyWrite": true
+    }
+]

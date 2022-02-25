@@ -1,0 +1,19 @@
+{
+  "host": "localhost",
+  "port": "4000",
+  "jwt_expiretime": "3600000",
+  "channelName": "channel",
+  "CC_SRC_PATH": "../artifacts",
+  "eventWaitTime": "30000",
+  "chaincodeName": "Channel",
+  "admins": [
+    {
+      "username": "admin",
+      "secret": "adminpw"
+    }
+  ],
+  "url": {
+    "userurl": "http://admin:adminpw@localhost:5984/channel_patient%24%24ppatient_priv/_find"
+  },
+  "TOKEN": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaWQ6ZXRocjoweEU0NDVmQTgzY2ZFODk2RjY3NzQ1NUNBQ0JkODZhMEM1Mjc4N2YwYjMiLCJpc3MiOiJ3ZWIzLXN0b3JhZ2UiLCJpYXQiOjE2NDAzMzk0Njc5OTYsIm5hbWUiOiJNQUgifQ.htVw-_3qF9_xKQpK3tMT8O4p8NbHCRsWoh9nB_Izow0"
+}
