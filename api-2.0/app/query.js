@@ -12,7 +12,7 @@ const helper = require('./helper');
 
 function login(req, callback) {
 
-    axios.post(url, {
+    axios.post(constants.url.userurl, {
         "selector": {
             "phoneNumber": req.loginId
         }
